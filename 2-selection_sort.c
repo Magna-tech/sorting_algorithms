@@ -21,9 +21,12 @@ void selection_sort(int *array, size_t size)
 				temp = j;
 			}
 		}
-		array[temp] = array[i];
-		array[i] = first;
-		print_array(array, size);
+		if (first != array[i])
+		{
+			array[temp] = array[i];
+			array[i] = first;
+			print_array(array, size);
+		}
 		i++;
 	}
 }
