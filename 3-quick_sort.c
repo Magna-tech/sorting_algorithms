@@ -12,6 +12,8 @@ void rec_sort(int *array, int first, int last, size_t size);
  */
 void quick_sort(int *array, size_t size)
 {
+	srand(time(NULL));
+
 	rec_sort(array, 0, size - 1, size);
 }
 
@@ -40,9 +42,15 @@ void swap(int *a, int *b)
  */
 int partition(int *array, int first, int last, size_t size)
 {
-	int i = first, j, pivot;
+	int i, j, pivot, p_index;
+	(void) size;
+
+	p_index = first + (rand() % (last - first));
+	if (p_index != last)
+		swap(&array[p_index], &array[last]);
 
 	pivot = array[last];
+	i = first;
 	for (j = first; j < last; j++)
 	{
 		if (array[j] <= pivot)
@@ -52,7 +60,6 @@ int partition(int *array, int first, int last, size_t size)
 		}
 	}
 	swap(&array[i], &array[last]);
-	print_array(array, size);
 
 	return (i);
 }
@@ -71,6 +78,7 @@ void rec_sort(int *array, int first, int last, size_t size)
 	if (first < last)
 	{
 		index = partition(array, first, last, size);
+		print_array(array, size);
 		rec_sort(array, first, index - 1, size);
 		rec_sort(array, index + 1, last, size);
 	}
