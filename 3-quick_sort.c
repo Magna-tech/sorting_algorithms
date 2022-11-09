@@ -34,6 +34,7 @@ void swap(int *a, int *b)
  * @array: given array
  * @first: first element of the array
  * @last: llast element of the array
+ * @size: size of the array
  *
  * Return: the chosen partition value
  */
@@ -61,6 +62,7 @@ int partition(int *array, int first, int last, size_t size)
  * @array: array to be sorted
  * @first: first beginning of the array
  * @last: last element of the array
+ * @size: size of the array
  */
 void rec_sort(int *array, int first, int last, size_t size)
 {
