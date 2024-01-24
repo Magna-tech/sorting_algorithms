@@ -47,12 +47,8 @@ void swap(int *a, int *b)
  */
 int partition(int *array, int first, int last, size_t size)
 {
-	int i, j, pivot, p_index;
+	int i, j, pivot;
 	(void) size;
-
-	p_index = first + (rand() % (last - first));
-	if (p_index != last)
-		swap(&array[p_index], &array[last]);
 
 	pivot = array[last];
 	i = first;
