@@ -3,6 +3,7 @@
 void swap(int *a, int *b);
 int partition(int *array, int first, int last, size_t size);
 void rec_sort(int *array, int first, int last, size_t size);
+static int is_seeded;
 /**
  * quick_sort - sort an array of ints using quick sort
  * @array: the given array
@@ -12,7 +13,11 @@ void rec_sort(int *array, int first, int last, size_t size);
  */
 void quick_sort(int *array, size_t size)
 {
-	srand(time(NULL));
+	if (!is_seeded)
+	{
+		srand(time(NULL));
+		is_seeded = 1;
+	}
 
 	rec_sort(array, 0, size - 1, size);
 }
